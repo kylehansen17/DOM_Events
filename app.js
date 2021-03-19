@@ -72,3 +72,46 @@ window.addEventListener('keydown', function (e) {
 // The above will log any key that is pressed when on the page
 // e.key = end result
 // e.code = physical location of what is pressed
+
+
+// ***** Form Events *****
+const tweetForm = document.querySelector('#tweetForm');
+const tweetsContainer = document.querySelector('#tweets');
+tweetForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const usernameInput = tweetForm.elements.username;
+    const tweetInput = tweetForm.elements.tweet;
+    addTweet(usernameInput.vale, tweetInput.value)
+    usernameInput.value = '';
+    tweetInput.value = '';
+});
+
+const addTweet = (username, tweet) => {
+    const newTweet = document.createElement('li');
+    const bTag = document.createElement('b');
+    bTag.append(username)
+    newTweet.append(bTag);
+    newTweet.append(`- ${tweet}`)
+    tweetsContainer.append(newTweet);
+}
+
+
+// Input & Change Events
+const input = document.querySelector('input');
+const h1 = document.querySelector('h1');
+
+input.addEventListener('change', function (e) {
+    console.log('Change Event')
+    // Change is listening for when you "blur": leave the input box after change is made
+})
+
+input.addEventListener('input', function (e) {
+    console.log('Input Event')
+    // Input is listening for any input made in the input box
+})
+
+input.addEventListener('input', function (e) {
+    h1.innerText = input.value
+    // h1 mirrors what is being input
+})
