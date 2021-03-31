@@ -115,3 +115,8 @@ input.addEventListener('input', function (e) {
     h1.innerText = input.value
     // h1 mirrors what is being input
 })
+
+
+// Event Bubbling - triggering all parent event listners
+e.stopPropagation();
+// will stop bubbling from happening
